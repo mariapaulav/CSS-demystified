@@ -32,8 +32,7 @@ h3,
 p {
   margin: 0;
 }
-
-// atribute selector to specify to apply the rule , the rule applies when an ul has a class on it.
+/* atribute selector to specify to apply the rule , the rule applies when an ul has a class on it. */
 ul[class],
 ol[class] {
   list-style: none;
@@ -41,10 +40,11 @@ ol[class] {
 }
 
 img {
-  max-width: 100%; // se adapta al 100% del contenedor
+  max-width: 100%; /* se adapta al 100% del contenedor */
   height: auto;
   display: block;
-} // this rule works in every project
+}  /* this rule works in every project */
+
 
 /* Utility classes */
 .flow-content > * + * {
@@ -56,19 +56,19 @@ img {
 }
 
 .container {
-  padding: 0 var(--spacer); // create spacing on left and right
-  max-width: 70rem; // stops growing
-  margin: 0 auto; // same space in sides of screen
+  padding: 0 var(--spacer);  /* create spacing on left and right */
+  max-width: 70rem;  /* stops growing */
+  margin: 0 auto; /* same space in sides of screen */
 }
 
 .direction {
   display: flex;
   flex-direction: column;
-  /* gap: var(--spacer); */
+  /* gap: var(--spacer); */ /* not browser support (safari) */
 }
 
 .direction > * + * {
-  margin: calc(var(--spacer) * 3) 0 0 0;
+  margin: calc(var(--spacer) * 3) 0 0 0; /* multiply spacer * 3 */
 }
 
 @media (min-width: 40em) {
@@ -128,7 +128,7 @@ h1 span {
 /* general layout */
 
 section {
-  padding: 4.125rem 0; // padding includes de bg // for mobile design
+  padding: 4.125rem 0; /* padding includes de bg // for mobile design */
 }
 
 @media (min-width: 40em) {
