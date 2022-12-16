@@ -32,10 +32,14 @@
   box-sizing: border-box;
 }
 
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4 {
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4 {
   line-height: 1.2;
 }
 
@@ -94,7 +98,7 @@ img {
   }
 
   .split > * + * {
-    margin: 0 0 0 var(--spacer);
+    margin: 0 0 0 var(--gap, var(--spacer));
   }
 }
 
@@ -124,13 +128,34 @@ img {
   --accent: var(--clr-neutral-100);
 }
 
+.bg-light {
+  --fg: var(--clr-neutral-900);
+  --bg: var(--clr-neutral-100);
+  --accent: var(--clr-accent-400);
+}
 /* .bg-dark {
   color: var(--clr-neutral-100);
   background: var(--clr-neutral-900);
 } */
 
 .text-accent {
-  color: var(--clr-accent-400);
+  color: var(--accent, var(--clr-accent-400));
+}
+
+.corner-square {
+  position: relative;
+}
+
+.corner-square::before {
+  content: "";
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  background: var(--accent, var(--clr-accent-400));
+  position: absolute;
+  left: -0.5rem;
+  top: -0.5rem;
+  z-index: -1;
 }
 
 /* general styling */
@@ -150,7 +175,6 @@ h2,
   font-weight: var(--fw-700);
 }
 
-
 a {
   color: var(--clr-accent-500);
   text-decoration: none;
@@ -161,7 +185,7 @@ a {
   font-weight: var(--fw-400);
 }
 
-.section-title{
+.section-title {
   display: inline-block;
   font-size: var(--fs-300);
   text-transform: uppercase;
@@ -181,7 +205,7 @@ a {
   color: inherit;
   padding: 0.75em 1.5em;
   background-color: var(--accent, var(--clr-accent-400));
-  color: var( --fg, var(--clr-neutral-900));
+  color: var(--fg, var(--clr-neutral-900));
 }
 
 /* navigation */
@@ -233,6 +257,10 @@ section {
 
 /* individual sections */
 
+.hero {
+  --gap: 3rem;
+}
+
 .hero img {
   transform: translateY(2em);
 }
@@ -243,28 +271,27 @@ section {
   }
 }
 
-.join-now li::before {
-  content: "";
-  display: block;
-  width: 5rem;
-  height: 5rem;
-  background: var(--clr-accent-400);
-  position: absolute;
-  z-index: -1;
-  transform: translate(-0.5rem, -0.5rem);
-}
-
 .cta {
   background-size: cover;
+  background-blend-mode: multiply;
   text-align: center;
 }
 
-.testimonials{
+.cta.bg-accent {
+  background-image: url(assets/cta-bg-1.jpg);
+}
+
+.cta.bg-light {
+  background-image: url(assets/cta-bg-2.jpg);
+}
+
+.testimonials {
+  --gap: 4rem;
   text-align: center;
 }
 .testimonial {
   text-align: left;
-  padding: calc(var(--spacer)* 2);
+  padding: calc(var(--spacer) * 2);
 }
 
 .testimonial p:first-of-type {
@@ -274,5 +301,9 @@ section {
 .testimonial .name {
   font-weight: var(--fw-700);
   margin-top: 4rem;
-  color: var(--accent)
+  color: var(--accent);
+}
+
+.testimonial.bg-accent {
+  --accent: var(--clr-neutral-900);
 }
