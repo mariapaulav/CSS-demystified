@@ -32,6 +32,12 @@ p {
 }
 
 /* Utility classes */
+
+.bg-dark {
+  background-color: var(--clr-primary-400);
+  color: var(--clr-neutral-100)
+}
+
 .flow-content > * + * {
   margin-top: var(--flow-space, var(--spacer));
 }
@@ -54,12 +60,23 @@ p {
 @media (min-width: 40em) {
   .split {
     flex-direction: row;
-    justify-content: space-between;
   }
 
-  /* .split > * {
+  .split > * {
     flex-basis: 100%;
-  } */
+  }
+
+  .col-1 {
+    flex-basis: 25%;
+  }
+  
+  .col-2 {
+    flex-basis: 50%;
+  }
+
+  .col-3 {
+    flex-basis: 75%;
+  }
 
   .split > * + * {
     margin: 0 0 0 var(--spacer);
@@ -80,6 +97,7 @@ h1,
 h2,
 h3 {
   font-weight: var(--fw-700);
+  line-height: 1.1em;
 }
 
 h1 {
@@ -92,6 +110,16 @@ h3 {
   font-size: var(--fs-500);
 }
 
+/* General Layout */
+
+section {
+  padding: 10rem 0;
+}
+
+img {
+  max-width: 100%;
+}
+
 /* components */
 
 .btn {
@@ -102,4 +130,15 @@ h3 {
   background: var(--clr-primary-400);
   color: var(--clr-neutral-100);
   padding: 0.5em 1.25em;
+}
+
+.card {
+  align-self: flex-start;
+  padding: var(--spacer);
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.20);
+}
+
+.section-one {
+  background-image: url(img/hero-bg.jpg);
+  background-size: cover;
 }
